@@ -1,8 +1,8 @@
-#ABOUT PROJECT
+# ABOUT PROJECT
 This website is to be used for validating emails - wether or not an email exists
 
-#DEPENDENCIES
+# DEPENDENCIES
 ## USE NPM TO INSTALL node-email-verifier
-'''bash
+```bash
 npm install node-email-verifier express
-'''
+```
