@@ -4,9 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/main.css" rel="stylesheet">
+    <link rel="icon" href="img/icon/home-icon.png">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Home</title>
 </head>
 <body>
-    <h1>TRUE MAIL</h1>
+    <div class="grid-container">
+        <nav>
+            Nav bar
+        </nav>
+
+        <main>
+            <h2>
+                <code>TRUE EMAIL</code>
+            </h2>
+
+            <div class="snippet-div">
+                <p>This tool will be used to validate email addresses. This tool will connect with it's associated MX (Mail Exchange) records to confirm its validity</p>
+            </div>
+
+            <form>
+                <input type="text" name="email_addr" placeholder="Type here....." class="email-box">
+                <button type="submit" name="go_button" onclick="validate_once()">Go</button>
+                <button type="reset" name="clear_button">Clear</button>
+            </form>
+        </main>
+
+        <footer>
+            True Mail<sup>&copy;</sup> 2025
+        </footer>
+    </div>
+
+    <script defer="true">
+        async function validate_once() {
+            try{
+                const res = await fetch("http://localhost:7341/api/validate_once", {
+                    method: "POST",
+                    headers: {
+                        'Content-Type': "application/json"
+                    },
+                    body: JSON.stringify({name:"Chaupi"})
+                });
+
+                const data = await res.json();
+                alert(data.name)
+                console.log(data.name);
+            }catch(err){
+                console.log(`an error occured ${err}`);
+            }
+        }
+    </script>
+
 </body>
 </html>

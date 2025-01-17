@@ -3,3 +3,46 @@
     margin: 0;
     box-sizing: border-box;
 }
+
+html{
+    font-size: 62%;
+}
+
+body{
+    font-family: 'Trebuchet MS', 'Tahoma','Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 1.6rem;
+    min-height: 100vh;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-areas: 'nav' 'main' 'footer';
+    grid-template-rows: 1fr 5fr 2fr;
+    border:1px solid red;
+    height: 100vh;
+}
+
+nav, main, footer{
+    display: flex;
+    flex-direction: column;
+    border: 1px solid green;
+}
+
+/************ MAIN ************/
+main{
+    justify-content: start;
+    align-items: center;
+
+}
+
+.snippet-div{
+    text-align: center;
+    width: 60%;
+}
+
+
+/********** FOOTER ************/
+footer{
+    justify-content: center;
+    align-items: center;
+}
