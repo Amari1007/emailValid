@@ -40,6 +40,11 @@ main{
     width: 60%;
 }
 
+/********** RESULT BOX **********/
+.result-box{
+    border: 1px solid black;
+    background-color: bisque;
+}
 
 /********** FOOTER ************/
 footer{

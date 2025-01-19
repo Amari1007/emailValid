@@ -24,31 +24,36 @@
             </div>
 
             <form>
-                <input type="text" name="email_addr" placeholder="Type here....." class="email-box">
-                <button type="submit" name="go_button" onclick="validate_once()">Go</button>
+                <input type="text" name="email_addr" placeholder="Type here....." class="email-box" id="email-box">
+                <button type="button" name="go_button" onclick="validate_once(event, this)">Go</button>
                 <button type="reset" name="clear_button">Clear</button>
             </form>
+
+            <div class="result-box" id="result-box">
+                ...
+            </div>
         </main>
 
         <footer>
-            True Mail<sup>&copy;</sup> 2025
+            <p>True Mail<sup>&trade;</sup> 2025</p>
         </footer>
     </div>
 
     <script defer="true">
-        async function validate_once() {
+        async function validate_once(e, obj) {
+            e.preventDefault();
+            const email_box = document.getElementById("email-box");
             try{
                 const res = await fetch("http://localhost:7341/api/validate_once", {
                     method: "POST",
                     headers: {
                         'Content-Type': "application/json"
                     },
-                    body: JSON.stringify({name:"Chaupi"})
+                    body: JSON.stringify({email:email_box.value.toString()})
                 });
-
                 const data = await res.json();
-                alert(data.name)
-                console.log(data.name);
+                //alert(data.email)
+                console.log(data);
             }catch(err){
                 console.log(`an error occured ${err}`);
             }
